@@ -154,3 +154,17 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'phlmsystem@gmail.com'
 DEFAULT_FROM_EMAIL = 'phlmsystem@gmail.com'
+
+
+# Static files fix for Render
+import os
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Whitenoise for static files
+MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+] + MIDDLEWARE
+
+# CSRF fix
+CSRF_TRUSTED_ORIGINS = ['https://django-ntz1.onrender.com']
