@@ -1,1 +1,1 @@
-web: gunicorn phlm_project.wsgi --log-file -
+web: gunicorn phlms_project.wsgi:application
